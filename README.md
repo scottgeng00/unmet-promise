@@ -25,6 +25,6 @@ Each subfolder contains its own `README.md` file detailing usage and setup.
 
 
 
-### Coming soon
+## Coming soon
 - [ ] Release of generated synthetic data
 - [ ] Release of LAION-2B kNN indicies 
