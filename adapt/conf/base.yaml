@@ -1,0 +1,58 @@
+defaults:
+  - _self_
+
+gpu: null
+wandb: true
+
+
+exp:
+  data_type: 'real'
+  data_name: 'aircraft'
+  data_count: null    # how many data points to use, none to use all
+  data_filter: null   # use a filtered subset of data by specifying a file containing list of img ids
+  data_location: ???  # path to train data
+  name: null
+  suffix: ''
+  seed: 42
+
+train:
+  train_datasets: "${resolve_train_datasets: ${exp.data_name}, ${exp.data_type}}"
+  method: 'wiseft'
+  template_name: "${resolve_template_name: ${exp.data_name}}"
+  mix_dataset: null
+  mix_dataset_location: null
+  mix_dataset_weight: null
+
+
+eval:
+  eval_datasets: "${resolve_eval_datasets: ${exp.data_name}, ${exp.data_type}}"
+  eval_interval: 1
+  eval_data_location: /scr/datasets
+  eval_template_name: "${resolve_eval_templates: ${eval.eval_datasets}, ${train.method}}"
+  lp_eval: true
+  eval_only: false
+
+
+save:
+  save_interval: 1
+  results_db: 'results_${model.arch}_${train.method}_${hparams.bsz}_${hparams.lr}_wd${hparams.wd}_ep${hparams.epochs}_seed${exp.seed}.jsonl'
+  save_folder: '${model.arch}_${train.method}_${hparams.bsz}_${hparams.lr}_wd${hparams.wd}_ep${hparams.epochs}_seed${exp.seed}'
+
+
+hparams:
+  bsz: 512
+  lr: 1e-5
+  epochs: 30
+  wd: 0.1   # weight decay
+  warmup_length: 500
+
+
+resume:
+  resume: false
+  resume_ckpt: null
+
+model:
+  arch: 'ViT-B-16'                        # arch to use
+  pretrained_ckpt: 'laion2b_s34b_b88k'    # ['laion400m_e31', 'laion400m_e32', 'laion2b_s34b_b88k']
+  dtype: 'float32'                        # dtype to load model / train in
+  cache_dir: '/scr/cache'                 # where to cache model features when doing LP

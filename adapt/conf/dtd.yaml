@@ -1,0 +1,15 @@
+defaults:
+  - base
+  - _self_
+
+gpu: null
+wandb: true
+
+exp:
+  data_type: 'synthetic'
+  data_name: 'dtd'
+
+hparams:
+  bsz: 512
+  lr: 1e-5
+  epochs: 30

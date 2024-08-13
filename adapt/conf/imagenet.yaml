@@ -1,0 +1,20 @@
+defaults:
+  - base
+  - _self_
+
+gpu: null
+wandb: true
+
+exp:
+  data_type: 'synthetic'
+  data_name: 'imagenet'
+
+hparams:
+  bsz: 512
+  lr: 1e-6
+  epochs: 10
+  lp_hparams:
+    bsz: 256
+    lr: 1e-3
+    epochs: 40
+    wd: 0

@@ -1,0 +1,24 @@
+defaults:
+  - base
+  - _self_
+
+gpu: null
+wandb: true
+
+exp:
+  data_type: 'retrieve'
+  data_name: 'laion'
+
+train:
+  train_datasets: "RandomLAIONFolder"
+  method: 'flyp'
+  template_name: "simple_template"
+
+eval:
+  eval_datasets: ???
+  lp_eval: false
+
+hparams:
+  bsz: 512
+  lr: 1e-5
+  epochs: 30
