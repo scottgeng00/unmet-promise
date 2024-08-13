@@ -15,7 +15,7 @@ For example, to finetune a CLIP model for FGVCAircraft via targeted synthetic da
 python run.py -cn aircraft -m exp.data_type='synthetic' \
 exp.data_location=/path/to/synthetic/imagefolder/dataset \
 exp.data_filter=/path/to/filtered/subset/text/file \
-exp.data_count=1000,10000,100000 lr=1e-5,1e-6 \
+exp.data_count=1000,10000,100000 hparams.lr=1e-5,1e-6 \
 exp.lp_eval=True save.save_interval=5 gpu="'0,1'" \
 ```
 
