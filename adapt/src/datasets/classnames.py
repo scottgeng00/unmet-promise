@@ -1,3 +1,5 @@
+from .imagenet_classnames import get_classnames
+
 CARS_CLASSNAMES = [
     'AM General Hummer SUV 2000',
     'Acura RL Sedan 2012',
@@ -301,3 +303,5 @@ FLOWERS_CLASSNAMES = [
     'trumpet creeper',
     'blackberry lily',
 ]
+
+IMAGENET_CLASSNAMES = get_classnames('openai')

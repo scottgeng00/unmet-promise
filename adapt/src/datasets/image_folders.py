@@ -4,10 +4,7 @@ from torchvision.datasets import ImageFolder as PyTorchImageFolder
 from torch.utils.data import random_split
 from typing import Any, Tuple
 import json
-from .classnames import FLOWERS_CLASSNAMES, CARS_CLASSNAMES
-from .imagenet_classnames import get_classnames
-
-IMAGENET_CLASSNAMES = get_classnames('openai')
+from .classnames import FLOWERS_CLASSNAMES, CARS_CLASSNAMES, IMAGENET_CLASSNAMES
 
 def _get_filtered_subset(dataset, filtered_subset_path):
     if filtered_subset_path is None:
