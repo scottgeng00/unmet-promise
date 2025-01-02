@@ -24,7 +24,9 @@ conda env create -f environment.yml
 Each subfolder contains its own `README.md` file detailing usage and setup.
 
 
+## Data
+The synthetic images used in our experiments are available for download at [https://huggingface.co/datasets/scottgeng00/unmet-promise](https://huggingface.co/datasets/scottgeng00/unmet-promise).
+
 
 ## Coming soon
-- [ ] Release of generated synthetic data
 - [ ] Release of LAION-2B kNN indicies 
